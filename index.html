@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEGLA-136 (DEC 2020) - English at the Workplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0 #000;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5em;
+            margin: 0;
+            color: #000;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 0;
+            color: #666;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff4757;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        section p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        footer span {
+            color: #ff4757;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 2px solid #000;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 2px solid #000;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #000;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Highlighted Words */
+        .highlight {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        /* Passive Voice Underline */
+        .underline {
+            text-decoration: underline;
+        }
+
+        /* Letter-like UI for Short Notes */
+        .letter {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .letter h4 {
+            margin-top: 0;
+            color: #000;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* CV Card UI */
+        .cv-card {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .cv-card h4 {
+            margin-top: 0;
+            color: #000;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .cv-card .icon {
+            margin-right: 10px;
+            color: #ff4757;
+        }
+
+        .cv-card .section {
+            margin-bottom: 20px;
+        }
+
+        .cv-card .section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Letter UI */
+        .letter-ui {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .letter-ui textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #000;
+            border-radius: 5px;
+        }
+
+        .letter-ui button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+        }
+
+        .letter-ui button:hover {
+            background-color: #ff4757;
+        }
+
+        .letter-output {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .letter-output h4 {
+            margin-top: 0;
+            color: #000;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .letter-output p {
+            margin: 0;
+        }
+
+        /* Icons */
+        .icon {
+            margin-right: 10px;
+            color: #ff4757;
+        }
+
+        /* Input Fields */
+        .input-section {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .input-section input, .input-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #000;
+            border-radius: 5px;
+        }
+
+        .input-section button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+        }
+
+        .input-section button:hover {
+            background-color: #ff4757;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BEGLA-136 (DEC 2020)</h1>
+            <p>English at the Workplace - Term-End Examination</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#answers">Answers</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="home">
+                <h2>Welcome to the Study Website</h2>
+                <p>This website is designed to help you prepare for your exams with a clean and neat UI. Dive in, click on the "Answers" link, and unlock the secrets to acing your exams!</p>
+            </section>
+
+            <section id="answers">
+                <h2>BEGLA-136: English at the Workplace</h2>
+
+                <!-- Question 1 -->
+                <div>
+                    <h3>Question 1: Match the words in Column A with their meanings in Column B</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Column A</th>
+                                <th>Column B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(i) Assertive</td>
+                                <td>(e) Speaking or acting in a forceful way</td>
+                            </tr>
+                            <tr>
+                                <td>(ii) Interrogate</td>
+                                <td>(j) Question</td>
+                            </tr>
+                            <tr>
+                                <td>(iii) Commendation</td>
+                                <td>(j) An official award or recommendation</td>
+                            </tr>
+                            <tr>
+                                <td>(iv) Adaptability</td>
+                                <td>(h) Ability to adjust to new situations</td>
+                            </tr>
+                            <tr>
+                                <td>(v) Cultural competence</td>
+                                <td>(i) Ability to understand differences in the backgrounds of people</td>
+                            </tr>
+                            <tr>
+                                <td>(vi) Prior</td>
+                                <td>(d) Coming before</td>
+                            </tr>
+                            <tr>
+                                <td>(vii) Initialise</td>
+                                <td>(a) Start something</td>
+                            </tr>
+                            <tr>
+                                <td>(viii) Brainwave</td>
+                                <td>(c) A brilliant idea that occurs suddenly</td>
+                            </tr>
+                            <tr>
+                                <td>(ix) Concise</td>
+                                <td>(f) Expressing much in a few words</td>
+                            </tr>
+                            <tr>
+                                <td>(x) Tangible</td>
+                                <td>(b) Real, able to be shown and experienced</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Question 2 -->
+                <div>
+                    <h3>Question 2: Make sentences using the following words</h3>
+                    <p><strong>Words:</strong> Convey, Assess, Update, Mutual, Etiquette</p>
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        <li>(i) <span class="highlight">Convey</span>: The manager asked me to convey the message to the team.</li>
+                        <li>(ii) <span class="highlight">Assess</span>: It is important to assess the situation before making a decision.</li>
+                        <li>(iii) <span class="highlight">Update</span>: Please update me on the progress of the project.</li>
+                        <li>(iv) <span class="highlight">Mutual</span>: The mutual respect between the team members led to a successful project.</li>
+                        <li>(v) <span class="highlight">Etiquette</span>: Workplace etiquette is essential for maintaining professionalism.</li>
+                    </ul>
+                </div>
+
+                <!-- Question 3 -->
+                <div>
+                    <h3>Question 3: Rewrite the sentences in passive voice</h3>
+                    <p><strong>Sentences:</strong></p>
+                    <ul>
+                        <li>(a) Columbus discovered America. → America <span class="underline">was discovered</span> by Columbus.</li>
+                        <li>(b) The police arrested him. → He <span class="underline">was arrested</span> by the police.</li>
+                        <li>(c) The Committee selected a new Chairperson today. → A new Chairperson <span class="underline">was selected</span> by the Committee today.</li>
+                        <li>(d) The farmer gathered the harvest. → The harvest <span class="underline">was gathered</span> by the farmer.</li>
+                        <li>(e) Kalidasa wrote the Sanskrit play ‘Abhijnanasakuntalam’. → The Sanskrit play ‘Abhijnanasakuntalam’ <span class="underline">was written</span> by Kalidasa.</li>
+                    </ul>
+                </div>
+
+                <!-- Question 4 -->
+                <div>
+                    <h3>Question 4: Fill in the blanks</h3>
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        <li>(a) The <span class="highlight">typed</span> letters are ready for dispatch. (Use appropriate form of ‘type’)</li>
+                        <li>(b) I think a line is <span class="highlight">missing</span> in the letter. (Use correct form of ‘miss’)</li>
+                        <li>(c) After the Chairman resigned, the Deputy Chairman <span class="highlight">shouldered</span> all the responsibilities of the organisation. (Use the correct form of ‘shoulder’)</li>
+                        <li>(d) Please have these letters <span class="highlight">dispatched</span>. (Use correct form of ‘dispatch’)</li>
+                        <li>(e) You should try to keep on <span class="highlight">upgrading</span> your skills. (Use correct form of ‘upgrade’)</li>
+                        <li>(f) This portrait was painted <span class="highlight">by</span> a famous artist. (Use the correct preposition)</li>
+                        <li>(g) The express train is due <span class="highlight">at</span> 3 pm. (Use the correct preposition)</li>
+                        <li>(h) I insisted <span class="highlight">on</span> going. (Use the correct preposition)</li>
+                        <li>(i) Sri Lanka is <span class="highlight">an</span> island. (Use the correct article)</li>
+                        <li>(j) <span class="highlight">The</span> Ganga is worshipped as a sacred river. (Use the correct article)</li>
+                    </ul>
+                </div>
+
+                <!-- Question 5 -->
+                <div>
+                    <h3>Question 5: Write short notes (around 150 words each)</h3>
+                    <div class="letter">
+                        <h4><i class="fas fa-folder-open icon"></i> Organising a Portfolio</h4>
+                        <p>Organising a portfolio involves systematically arranging and presenting your work, achievements, and skills in a structured manner. A well-organised portfolio showcases your professional journey and highlights your strengths. Start by categorizing your work into sections such as education, professional experience, skills, and projects. Use clear headings and subheadings to make it easy to navigate. Include relevant documents, certificates, and samples of your work. Ensure that your portfolio is visually appealing and free of errors. Regularly update it to reflect your latest accomplishments. A well-maintained portfolio not only helps in job applications but also serves as a personal record of your growth and achievements.</p>
+                    </div>
+                    <div class="letter">
+                        <h4><i class="fas fa-handshake icon"></i> The Importance of Interpersonal Skills at the Workplace</h4>
+                        <p>Interpersonal skills are crucial for success in the workplace. They include communication, teamwork, empathy, and conflict resolution. Effective communication ensures that ideas and information are clearly conveyed, reducing misunderstandings. Teamwork fosters collaboration and enhances productivity. Empathy helps in understanding and addressing the needs of colleagues and clients. Conflict resolution skills are essential for maintaining a harmonious work environment. Strong interpersonal skills contribute to a positive workplace culture, improve relationships, and enhance career growth. Employers value these skills as they lead to better teamwork, increased job satisfaction, and overall organisational success.</p>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div>
+                    <h3>Question 6: Prepare your brief CV</h3>
+                    <div class="input-section">
+                        <input type="text" id="cv-name-input" placeholder="Your Name">
+                        <input type="text" id="cv-contact-input" placeholder="Contact Information">
+                        <input type="text" id="cv-email-input" placeholder="Email Address">
+                        <button onclick="generateCV()">Generate CV</button>
+                    </div>
+                    <div class="cv-card" id="cv-output">
+                        <h4><i class="fas fa-user icon"></i> Curriculum Vitae</h4>
+                        <div class="section">
+                            <strong>Name:</strong> <span id="cv-name">[Your Name]</span><br>
+                            <strong>Contact:</strong> <span id="cv-contact">[Your Contact Information]</span><br>
+                            <strong>Email:</strong> <span id="cv-email">[Your Email Address]</span>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-bullseye icon"></i> Objective</h4>
+                            <p>To obtain a position as a <strong>freelance web developer</strong>, utilizing my technical expertise and creativity to deliver innovative and responsive websites that meet client needs and exceed expectations.</p>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-graduation-cap icon"></i> Educational Qualifications</h4>
+                            <ul>
+                                <li><strong>Grade 11 (Science Stream)</strong> – XYZ School (2024 - Present)</li>
+                                <li><strong>High School</strong> – ABC High School (Completed)</li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-tools icon"></i> Skills</h4>
+                            <ul>
+                                <li>Proficient in front-end development: <strong>HTML, CSS, JavaScript</strong></li>
+                                <li>Knowledge of backend tools: <strong>Node.js, MongoDB</strong></li>
+                                <li>Skilled in <strong>responsive web design</strong> and <strong>mobile-first approach</strong></li>
+                                <li>Basic understanding of <strong>SEO</strong> and <strong>UI/UX principles</strong></li>
+                                <li>Familiar with <strong>version control systems</strong> like Git</li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-briefcase icon"></i> Professional Experience</h4>
+                            <ul>
+                                <li><strong>Freelance Web Developer</strong> (2024 – Present)</li>
+                                <ul>
+                                    <li>Designed and developed user-friendly websites for small businesses.</li>
+                                    <li>Created responsive designs optimized for mobile and desktop.</li>
+                                    <li>Integrated animations and interactive elements to enhance user experience.</li>
+                                    <li>Successfully managed client requirements and delivered projects on time.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-trophy icon"></i> Achievements</h4>
+                            <ul>
+                                <li>Developed a motivational website for a personal client.</li>
+                                <li>Created a dynamic pricing page with UPI integration and Google Sheets automation.</li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-heart icon"></i> Hobbies and Interests</h4>
+                            <ul>
+                                <li>Passionate about exploring web development trends.</li>
+                                <li>Enjoys watching drama and thriller movies (favorite actor: Heath Ledger).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div>
+                    <h3>Question 7: Write an official letter of application</h3>
+                    <div class="input-section">
+                        <input type="text" id="letter-name-input" placeholder="Your Name">
+                        <input type="text" id="letter-address-input" placeholder="Your Address">
+                        <input type="text" id="letter-company-input" placeholder="Company Name">
+                        <input type="text" id="letter-position-input" placeholder="Position Applied For">
+                        <button onclick="generateLetter()">Generate Letter</button>
+                    </div>
+                    <div id="letter-output" class="letter-output">
+                        <h4><i class="fas fa-envelope icon"></i> Job Application Letter</h4>
+                        <p id="letter-text"></p>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div>
+                    <h3>Question 8: Interview Questions for an Analyst</h3>
+                    <div class="faq">
+                        <div class="question"><i class="fas fa-question icon"></i> Q1: Tell me about yourself.</div>
+                        <div class="answer">A1: I am a detail-oriented individual with strong analytical and problem-solving skills. I thrive in data-driven environments and aim to provide insightful solutions as an analyst.</div>
+                        <div class="question"><i class="fas fa-question icon"></i> Q2: Why do you want to work here?</div>
+                        <div class="answer">A2: I admire the company’s commitment to data-driven decision-making and believe my skills can contribute to enhancing your analytical capabilities.</div>
+                        <div class="question"><i class="fas fa-question icon"></i> Q3: How do you handle stress?</div>
+                        <div class="answer">A3: I remain calm under pressure by prioritizing tasks and focusing on one thing at a time, ensuring that everything is completed efficiently.</div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div>
+                    <h3>Question 9: Outline of a Presentation</h3>
+                    <div class="letter">
+                        <h4><i class="fas fa-chalkboard icon"></i> Outline: How to Develop Effective Communication Skills</h4>
+                        <pre>
+1. Introduction
+   - Importance of communication skills
+   - Overview of the presentation
+
+2. Types of Communication
+   - Verbal
+   - Non-verbal
+   - Written
+
+3. Barriers to Effective Communication
+   - Language barriers
+   - Cultural differences
+   - Emotional barriers
+
+4. Strategies for Improvement
+   - Active listening
+   - Clear and concise messaging
+   - Feedback and reflection
+
+5. Conclusion
+   - Summary of key points
+   - Importance of continuous improvement
+                        </pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Made with ❤️ by <span>Robiii</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for CV Form
+        function generateCV() {
+            const name = document.getElementById('cv-name-input').value;
+            const contact = document.getElementById('cv-contact-input').value;
+            const email = document.getElementById('cv-email-input').value;
+
+            document.getElementById('cv-name').textContent = name;
+            document.getElementById('cv-contact').textContent = contact;
+            document.getElementById('cv-email').textContent = email;
+        }
+
+        // JavaScript for Job Application Letter
+        function generateLetter() {
+            const name = document.getElementById('letter-name-input').value;
+            const address = document.getElementById('letter-address-input').value;
+            const company = document.getElementById('letter-company-input').value;
+            const position = document.getElementById('letter-position-input').value;
+
+            const letterContent = `
+                ${name}<br>
+                ${address}<br>
+                [Date]<br><br>
+                To,<br>
+                The Hiring Manager,<br>
+                ${company},<br>
+                [Company Address]<br><br>
+                Subject: Application for the Position of ${position}<br><br>
+                Dear Sir/Madam,<br><br>
+                I am writing to express my interest in the ${position} position at ${company}, as advertised in [Source]. With a strong foundation in digital marketing, strategic planning, and campaign execution, I am confident that my skills and experience align with the requirements of the role.<br><br>
+                During my professional journey, I have successfully managed multiple marketing campaigns that resulted in increased brand visibility and customer engagement. I possess excellent leadership qualities and a keen ability to analyze market trends, enabling me to develop impactful strategies. My dedication to achieving results and my commitment to fostering teamwork make me a strong candidate for this position.<br><br>
+                Enclosed is my CV, which provides further details on my qualifications and achievements. I would welcome the opportunity to discuss how I can contribute to the growth and success of your esteemed organization.<br><br>
+                Thank you for considering my application. I look forward to the opportunity to interview with you.<br><br>
+                Sincerely,<br>
+                ${name}
+            `;
+
+            document.getElementById('letter-text').innerHTML = letterContent;
+            document.getElementById('letter-output').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
